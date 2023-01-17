@@ -1,20 +1,23 @@
 pipeline {
-  agent any 
+  agent any
+  
   stages {
-    stage('build') {
+    stage('Build') {
       steps {
         bat 'docker build -t docker-image-jenkins .'
       }
     }
-    stage('test') {
+    
+    stage('Test') {
       steps {
         bat 'pip install -r requirements.txt'
         bat 'python app.py'
       }
     }
-    stage('deploy') {
-      steps{
-        echo 'deploy test'
+    
+    stage('Deploy') {
+      steps {
+        echo 'Deploying....'
       }
     }
   }
