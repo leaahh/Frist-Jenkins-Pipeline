@@ -5,22 +5,21 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building'
-        sh 'pip3 install -r requirements.txt'
-        // bat 'docker build -t docker-image-jenkins .'
+        bat 'pip install -r requirements.txt'
       }
     }
     
     stage('Test') {
       steps {
         echo 'Test'
-        // bat 'pip install -r requirements.txt'
-        // bat 'python app.py'
+        bat 'python test_main.py'
       }
     }
     
     stage('Deploy') {
       steps {
         echo 'Deploying...'
+        bat 'docker build -t docker-image-firstjenkinspipeline .'
       }
     }
   }
