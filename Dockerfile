@@ -1,6 +1,6 @@
 # Dockerfile to build a flask app
 
-FROM python:latest
+FROM python:latest 
 
 WORKDIR /usr/app
 
