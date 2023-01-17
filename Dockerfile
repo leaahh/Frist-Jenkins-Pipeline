@@ -1,12 +1,16 @@
 # Dockerfile to build a flask app
 
-FROM python:latest 
+FROM python:3.9
 
-WORKDIR /usr/app
+WORKDIR /usr/src/app
+
+ENV FLASK_APP="app"
 
 COPY requirements.txt .
-RUN pip3 install -r requirements.txt 
+RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python", "app.py"] 
+EXPOSE 5000 
+
+CMD ["python", "-m", "flask", "run"]
