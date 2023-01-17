@@ -5,7 +5,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building'
-        bat 'pip3 install -r requirements.txt'
+        sh 'pip3 install -r requirements.txt'
         // bat 'docker build -t docker-image-jenkins .'
       }
     }
