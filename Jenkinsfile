@@ -4,14 +4,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        bat 'docker build -t docker-image-jenkins .'
+        sh 'docker build -t docker-image-jenkins .'
       }
     }
     
     stage('Test') {
       steps {
-        bat 'pip install -r requirements.txt'
-        bat 'python app.py'
+        sh 'pip install -r requirements.txt'
+        sh 'python app.py'
       }
     }
     
